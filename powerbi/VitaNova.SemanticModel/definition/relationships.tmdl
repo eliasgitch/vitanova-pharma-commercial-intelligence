@@ -1,0 +1,48 @@
+relationship 5fcdae466bbb5e69a07f
+	fromColumn: FactSales.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship 402f8cb165fd59b08f44
+	fromColumn: FactSales.MarketKey
+	toColumn: DimMarket.MarketKey
+
+relationship 088a22fe1d395bb88367
+	fromColumn: FactSales.ChannelKey
+	toColumn: DimChannel.ChannelKey
+
+relationship a170afcb66b05f69af5a
+	fromColumn: FactSales.MonthStart
+	toColumn: DimDate.Date
+
+relationship fb43d6a0afbd5f4c8f4c
+	fromColumn: FactBudget.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship d0525669e55953edb5ca
+	fromColumn: FactBudget.MarketKey
+	toColumn: DimMarket.MarketKey
+
+relationship e84cb0283d7a55368c82
+	fromColumn: FactBudget.ChannelKey
+	toColumn: DimChannel.ChannelKey
+
+relationship fd599ddd9a7b567d8680
+	fromColumn: FactBudget.MonthStart
+	toColumn: DimDate.Date
+
+relationship 4f70bf4b6f90575687cc
+	fromColumn: FactForecast.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship f21acc8c5167505eabd0
+	fromColumn: FactForecast.MarketKey
+	toColumn: DimMarket.MarketKey
+
+relationship deb6dabb6ccd5abfbd3b
+	fromColumn: FactForecast.ChannelKey
+	toColumn: DimChannel.ChannelKey
+
+relationship 90afc6af78405fe39b2e
+	fromColumn: FactForecast.MonthStart
+	toColumn: DimDate.Date
+

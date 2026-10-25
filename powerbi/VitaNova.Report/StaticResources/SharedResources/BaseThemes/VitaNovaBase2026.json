@@ -1,0 +1,30 @@
+{
+  "name": "VitaNovaBase2026",
+  "dataColors": [
+    "#184D69",
+    "#267995",
+    "#36A1AC",
+    "#66B7B0",
+    "#91C7BF",
+    "#C2DDDD"
+  ],
+  "background": "#F5F7F9",
+  "foreground": "#19384A",
+  "tableAccent": "#198E8E",
+  "textClasses": {
+    "label": {
+      "fontFace": "Arial",
+      "color": "#597587"
+    },
+    "title": {
+      "fontFace": "Arial",
+      "color": "#19384A",
+      "fontSize": 14
+    },
+    "callout": {
+      "fontFace": "Arial",
+      "color": "#19384A",
+      "fontSize": 24
+    }
+  }
+}

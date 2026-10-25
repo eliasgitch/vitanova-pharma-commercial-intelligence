@@ -1,0 +1,33 @@
+table DimScenario
+	lineageTag: 5d6d81bf-52a9-5337-afa0-0d026c1c44bf
+
+	column Scenario
+		dataType: string
+		lineageTag: 3839c8fa-bed8-5f9d-9832-1513ec46f723
+		summarizeBy: none
+		sourceColumn: Scenario
+
+	column Multiplier
+		dataType: double
+		lineageTag: e32c9203-e131-5798-9bd7-d925b4dae6ce
+		summarizeBy: none
+		sourceColumn: Multiplier
+
+	column Description
+		dataType: string
+		lineageTag: bf9741f0-b552-5906-92cd-d4b57f38934f
+		summarizeBy: none
+		sourceColumn: Description
+
+	partition DimScenario = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(Binary.Decompress(Binary.FromText(Text.Combine({
+						"hc3BDcIwDAXQe6fwAFFVbnBFvVYgoQ4QUkMNqR3FjlBv7MCGTELUBbh9fen9fwnIPpO4oUSjFAmz61FDpmQk3By9YiRGt2s7N7KfHkUNJ9CVbUajAKdgcsX8fX96DLjUCFIsijybMSlNG927cywKSPfZIGGurwbCcCtWMsIidU1rEdemlxdvrGsPbiCuzJD/oB8="
+					}), BinaryEncoding.Base64), Compression.Deflate), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Headers, {{"Scenario",type text},{"Multiplier",type number},{"Description",type text}}, "en-US")
+				in
+					Typed
+

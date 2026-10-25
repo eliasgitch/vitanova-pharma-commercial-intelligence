@@ -1,0 +1,218 @@
+[
+  {
+    "viewport": "1920x900",
+    "page": "overview",
+    "overall_scroll_px": 0,
+    "panel_count": 6,
+    "svg_count": 10,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "1920x900",
+    "page": "sales",
+    "overall_scroll_px": 0,
+    "panel_count": 6,
+    "svg_count": 8,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "1920x900",
+    "page": "budget",
+    "overall_scroll_px": 0,
+    "panel_count": 6,
+    "svg_count": 8,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "1920x900",
+    "page": "portfolio",
+    "overall_scroll_px": 0,
+    "panel_count": 6,
+    "svg_count": 5,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "1920x900",
+    "page": "markets",
+    "overall_scroll_px": 0,
+    "panel_count": 6,
+    "svg_count": 6,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "1920x900",
+    "page": "forecast",
+    "overall_scroll_px": 0,
+    "panel_count": 6,
+    "svg_count": 7,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "2560x1230",
+    "page": "overview",
+    "overall_scroll_px": 0,
+    "panel_count": 6,
+    "svg_count": 10,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "2560x1230",
+    "page": "sales",
+    "overall_scroll_px": 0,
+    "panel_count": 6,
+    "svg_count": 8,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "2560x1230",
+    "page": "budget",
+    "overall_scroll_px": 0,
+    "panel_count": 6,
+    "svg_count": 8,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "2560x1230",
+    "page": "portfolio",
+    "overall_scroll_px": 0,
+    "panel_count": 6,
+    "svg_count": 5,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "2560x1230",
+    "page": "markets",
+    "overall_scroll_px": 0,
+    "panel_count": 6,
+    "svg_count": 6,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "2560x1230",
+    "page": "forecast",
+    "overall_scroll_px": 0,
+    "panel_count": 6,
+    "svg_count": 7,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "1440x760",
+    "page": "overview",
+    "overall_scroll_px": 166,
+    "panel_count": 6,
+    "svg_count": 10,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "1440x760",
+    "page": "sales",
+    "overall_scroll_px": 166,
+    "panel_count": 6,
+    "svg_count": 8,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "1440x760",
+    "page": "budget",
+    "overall_scroll_px": 166,
+    "panel_count": 6,
+    "svg_count": 8,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "1440x760",
+    "page": "portfolio",
+    "overall_scroll_px": 166,
+    "panel_count": 6,
+    "svg_count": 5,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "1440x760",
+    "page": "markets",
+    "overall_scroll_px": 166,
+    "panel_count": 6,
+    "svg_count": 6,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "1440x760",
+    "page": "forecast",
+    "overall_scroll_px": 166,
+    "panel_count": 6,
+    "svg_count": 7,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "390x844",
+    "page": "overview",
+    "overall_scroll_px": 1587,
+    "panel_count": 6,
+    "svg_count": 10,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "390x844",
+    "page": "sales",
+    "overall_scroll_px": 1587,
+    "panel_count": 6,
+    "svg_count": 8,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "390x844",
+    "page": "budget",
+    "overall_scroll_px": 1587,
+    "panel_count": 6,
+    "svg_count": 8,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "390x844",
+    "page": "portfolio",
+    "overall_scroll_px": 1599,
+    "panel_count": 6,
+    "svg_count": 5,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "390x844",
+    "page": "markets",
+    "overall_scroll_px": 1587,
+    "panel_count": 6,
+    "svg_count": 6,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  },
+  {
+    "viewport": "390x844",
+    "page": "forecast",
+    "overall_scroll_px": 1599,
+    "panel_count": 6,
+    "svg_count": 7,
+    "js_errors": 0,
+    "overlap_test": "pass"
+  }
+]

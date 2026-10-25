@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "VitaNova Commercial Intelligence"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1b9b5d9b-ec01-59d6-9c04-b20c423b6dbc"
+  }
+}

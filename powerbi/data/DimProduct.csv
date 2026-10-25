@@ -1,0 +1,13 @@
+ProductKey,Brand,TherapeuticArea,UnitListPriceEUR,TargetGrossMarginPct
+P01,Oncelyx,Oncology,1280,0.82
+P02,Cytavera,Oncology,940,0.79
+P03,Immunexis,Immunology,780,0.75
+P04,Nivorin,Immunology,610,0.77
+P05,Cardiora,Cardiometabolic,90,0.66
+P06,Glucentra,Cardiometabolic,165,0.69
+P07,Neurivex,Neuroscience,420,0.73
+P08,Synapra,Neuroscience,295,0.72
+P09,Rarevia,Rare Diseases,2600,0.85
+P10,Orphalon,Rare Diseases,3400,0.86
+P11,Vironex,Infectious Diseases,140,0.67
+P12,Dermalys,Immunology,230,0.72

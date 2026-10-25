@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "589def754a61519cb39d",
+  "displayName": "Geographic Markets",
+  "displayOption": "FitToPage",
+  "height": 820,
+  "width": 1600
+}

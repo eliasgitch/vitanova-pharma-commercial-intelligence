@@ -1,0 +1,40 @@
+table DimMarket
+	lineageTag: fa09cb43-95ce-5f19-8eed-61ddd9ea2d8f
+
+	column MarketKey
+		dataType: string
+		lineageTag: a1439b85-872e-523b-9cf0-726ceaef9166
+		summarizeBy: none
+		sourceColumn: MarketKey
+
+	column Country
+		dataType: string
+		lineageTag: 3bf18868-18da-5b99-a595-f19a7643f3b6
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+	column Region
+		dataType: string
+		lineageTag: 8fbfb342-4532-5cae-b17a-49c71821c559
+		summarizeBy: none
+		sourceColumn: Region
+
+	column ReportingCurrency
+		dataType: string
+		lineageTag: f0e18aa6-3407-536c-8c72-76858da73142
+		summarizeBy: none
+		sourceColumn: ReportingCurrency
+
+	partition DimMarket = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(Binary.Decompress(Binary.FromText(Text.Combine({
+						"bY/BCoNADETvgv/gB+Qnil2LaEXcSs9Bgy7VrMR48O+7Unpo8ZTDTN7M3FFepAXtkPqNVXZoaHCew1m8qOMh3USIuz2OjAW7oGOwftORhBOziV8ITNvEUdZAJsgdwZNW/VevBm4kM3IIopCD04+cPyBXnPZzdFtAy06pT4pQqPfzaURVQkXH84Tcr6eW1n5BVlFphSpsHJPLTOI6/HjqEmp/IE6LvgE="
+					}), BinaryEncoding.Base64), Compression.Deflate), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Headers, {{"MarketKey",type text},{"Country",type text},{"Region",type text},{"ReportingCurrency",type text}}, "en-US")
+				in
+					Typed
+

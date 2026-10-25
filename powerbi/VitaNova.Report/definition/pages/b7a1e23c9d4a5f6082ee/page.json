@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "b7a1e23c9d4a5f6082ee",
+  "displayName": "VitaNova · Interactive",
+  "displayOption": "FitToPage",
+  "height": 900,
+  "width": 1600
+}

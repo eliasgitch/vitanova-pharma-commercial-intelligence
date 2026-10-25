@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+*.log
+.env*
+node_modules/
+
+.pbi/
+.tmp/
+/.github/
+/branding/
+/docs/
+/scripts/
+/sql/
+/tests/
+/data/
+/.nojekyll

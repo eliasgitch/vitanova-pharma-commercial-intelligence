@@ -1,0 +1,607 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "vitanovasemanticfull",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 900,
+    "width": 1600,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "VitaNovaSemanticVisualD9A83C2026",
+    "query": {
+      "queryState": {
+        "yearMonth": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimDate"
+                    }
+                  },
+                  "Property": "YearMonth"
+                }
+              },
+              "queryRef": "DimDate.YearMonth",
+              "nativeQueryRef": "YearMonth",
+              "active": true
+            }
+          ]
+        },
+        "productKey": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProduct"
+                    }
+                  },
+                  "Property": "ProductKey"
+                }
+              },
+              "queryRef": "DimProduct.ProductKey",
+              "nativeQueryRef": "ProductKey",
+              "active": true
+            }
+          ]
+        },
+        "brand": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProduct"
+                    }
+                  },
+                  "Property": "Brand"
+                }
+              },
+              "queryRef": "DimProduct.Brand",
+              "nativeQueryRef": "Brand",
+              "active": true
+            }
+          ]
+        },
+        "therapy": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProduct"
+                    }
+                  },
+                  "Property": "TherapeuticArea"
+                }
+              },
+              "queryRef": "DimProduct.TherapeuticArea",
+              "nativeQueryRef": "TherapeuticArea",
+              "active": true
+            }
+          ]
+        },
+        "marketKey": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimMarket"
+                    }
+                  },
+                  "Property": "MarketKey"
+                }
+              },
+              "queryRef": "DimMarket.MarketKey",
+              "nativeQueryRef": "MarketKey",
+              "active": true
+            }
+          ]
+        },
+        "country": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimMarket"
+                    }
+                  },
+                  "Property": "Country"
+                }
+              },
+              "queryRef": "DimMarket.Country",
+              "nativeQueryRef": "Country",
+              "active": true
+            }
+          ]
+        },
+        "region": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimMarket"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "DimMarket.Region",
+              "nativeQueryRef": "Region",
+              "active": true
+            }
+          ]
+        },
+        "channelKey": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimChannel"
+                    }
+                  },
+                  "Property": "ChannelKey"
+                }
+              },
+              "queryRef": "DimChannel.ChannelKey",
+              "nativeQueryRef": "ChannelKey",
+              "active": true
+            }
+          ]
+        },
+        "channel": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimChannel"
+                    }
+                  },
+                  "Property": "Channel"
+                }
+              },
+              "queryRef": "DimChannel.Channel",
+              "nativeQueryRef": "Channel",
+              "active": true
+            }
+          ]
+        },
+        "netSales": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Net Sales"
+                }
+              },
+              "queryRef": "_Measures.Net Sales",
+              "nativeQueryRef": "Net Sales",
+              "active": true
+            }
+          ]
+        },
+        "cogs": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "COGS"
+                }
+              },
+              "queryRef": "_Measures.COGS",
+              "nativeQueryRef": "COGS",
+              "active": true
+            }
+          ]
+        },
+        "units": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Units"
+                }
+              },
+              "queryRef": "_Measures.Units",
+              "nativeQueryRef": "Units",
+              "active": true
+            }
+          ]
+        },
+        "budgetSales": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Sales Budget"
+                }
+              },
+              "queryRef": "_Measures.Sales Budget",
+              "nativeQueryRef": "Sales Budget",
+              "active": true
+            }
+          ]
+        },
+        "budgetCogs": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "COGS Budget"
+                }
+              },
+              "queryRef": "_Measures.COGS Budget",
+              "nativeQueryRef": "COGS Budget",
+              "active": true
+            }
+          ]
+        },
+        "budgetUnits": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Units Budget"
+                }
+              },
+              "queryRef": "_Measures.Units Budget",
+              "nativeQueryRef": "Units Budget",
+              "active": true
+            }
+          ]
+        },
+        "forecastSales": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Forecast Monthly"
+                }
+              },
+              "queryRef": "_Measures.Forecast Monthly",
+              "nativeQueryRef": "Forecast Monthly",
+              "active": true
+            }
+          ]
+        },
+        "forecastCogs": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Forecast COGS Monthly"
+                }
+              },
+              "queryRef": "_Measures.Forecast COGS Monthly",
+              "nativeQueryRef": "Forecast COGS Monthly",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "64589e4570467927d91d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "YearMonth"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4a004a6f8826391daecb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProduct"
+              }
+            },
+            "Property": "ProductKey"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "07fce4c6e176c16fedd5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProduct"
+              }
+            },
+            "Property": "Brand"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0068b611e059de6d0a3c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProduct"
+              }
+            },
+            "Property": "TherapeuticArea"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e752f64464e0c705a634",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimMarket"
+              }
+            },
+            "Property": "MarketKey"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "335312755fafa7cca9cf",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimMarket"
+              }
+            },
+            "Property": "Country"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0e91b8ea1c5589ae046a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimMarket"
+              }
+            },
+            "Property": "Region"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ceca3f615afa5dcbb50d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimChannel"
+              }
+            },
+            "Property": "ChannelKey"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "569f652e41f8c671891e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimChannel"
+              }
+            },
+            "Property": "Channel"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ae59f3fb43d24b152e8e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Net Sales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "64495f850294c71bcf51",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "COGS"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "821e903b407917b494d7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Units"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f209d847cbf536de0bb4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Sales Budget"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6e751ec78dee57afa630",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "COGS Budget"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "96959faf396e8cb9b681",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Units Budget"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0f143d93220fd7b27683",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Forecast Monthly"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cce0fbd65a9aa7d40ad8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Forecast COGS Monthly"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

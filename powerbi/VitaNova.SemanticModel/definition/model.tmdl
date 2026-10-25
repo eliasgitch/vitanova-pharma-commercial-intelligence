@@ -1,0 +1,22 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DimDate","DimProduct","DimMarket","DimChannel","DimScenario","FactSales","FactBudget","FactForecast","_Measures"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DimDate
+ref table DimProduct
+ref table DimMarket
+ref table DimChannel
+ref table DimScenario
+ref table FactSales
+ref table FactBudget
+ref table FactForecast
+ref table _Measures
+

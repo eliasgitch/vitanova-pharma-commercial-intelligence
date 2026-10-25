@@ -1,0 +1,45 @@
+table DimProduct
+	lineageTag: 8d648f5d-30c6-57fa-86f1-d6bfb7f48624
+
+	column ProductKey
+		dataType: string
+		lineageTag: a4767f0b-5be8-58b3-950b-b6915967f2ce
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+	column Brand
+		dataType: string
+		lineageTag: 6fe87379-e605-5b53-99de-efd63392ab2e
+		summarizeBy: none
+		sourceColumn: Brand
+
+	column TherapeuticArea
+		dataType: string
+		lineageTag: 9b4b6eaa-4f5c-5ed3-84d5-3e6e63206fd8
+		summarizeBy: none
+		sourceColumn: TherapeuticArea
+
+	column UnitListPriceEUR
+		dataType: double
+		lineageTag: a1137e05-ba1a-5541-82ca-5ce2f2071a60
+		summarizeBy: none
+		sourceColumn: UnitListPriceEUR
+
+	column TargetGrossMarginPct
+		dataType: double
+		lineageTag: 86dfa3af-3144-5dfd-ba58-740e58977ee7
+		summarizeBy: none
+		sourceColumn: TargetGrossMarginPct
+
+	partition DimProduct = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(Binary.Decompress(Binary.FromText(Text.Combine({
+						"bZDBbsIwEETvlfoP/YBVFTvBIccWKoTaQkShd9dsYaXERrYTkb+v7VSiVJx2pH2a3Znamn2n/CsO8Gyl3sP2iFaesPOknixK2Gnyb+R8bUnhy24DW2kP6BfWOPceJOla+fu7OmOw1gqb4RynacxhAManGWSPUx73HGaDl31wvwBVEfdlFfc5LNu203gmN6oRKZNFOYlIASvqjSX9FxAsAWUEJjCTdk8m3BhFi15+mYYUVJESIlICFk2nUPsbGBOTyKWPSlhhZ6nHcxLGKcIQEQqeLuaRmcLHoOUpOF0hvIo2ZQpewUZa7Emm+TAnh9KhAy6y1E6MFjKs7ekoG6P/UXkxUvFzxuCTrAkdwVJ/o/JkOndBWWpTxCYYhznaVjbDVZk8z37f+gE="
+					}), BinaryEncoding.Base64), Compression.Deflate), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Headers, {{"ProductKey",type text},{"Brand",type text},{"TherapeuticArea",type text},{"UnitListPriceEUR",type number},{"TargetGrossMarginPct",type number}}, "en-US")
+				in
+					Typed
+

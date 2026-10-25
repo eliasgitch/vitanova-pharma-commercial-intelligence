@@ -1,0 +1,19 @@
+VITANOVA V5.5 - VISUAL POWER BI CORREGIDO
+
+CONTENIDO: codigo completo del visual y sus configuraciones. No incluye archivos PBIP ni datasets.
+
+CORRECCIONES:
+- capabilities.json: dataVolume movido al mapping "table" (esquema Microsoft).
+- 7 asignaciones innerHTML sustituidas por renderizado DOM (DOMParser + replaceChildren).
+- Se mantienen los 17 roles de datos y el GUID original, para conservar las vinculaciones.
+- COMPILAR-VISUAL.cmd comprueba el lint y el resultado de empaquetado.
+- No se han incrustado datos comerciales ni se han modificado las medidas DAX.
+
+INSTALACION:
+1. Copia estos archivos sobre la carpeta del visual dentro del proyecto VitaNova V5.5.
+2. Ejecuta COMPILAR-VISUAL.cmd. Si ya tienes node_modules instalado, se reutiliza.
+3. El .pbiviz, si la compilacion finaliza correctamente, aparecera en dist.
+4. En Power BI Desktop, importa el nuevo .pbiviz, manteniendo el mismo GUID.
+
+NOTA: Este ZIP contiene codigo fuente. No incluye .pbiviz precompilado, ya que la validacion
+completa con powerbi-visuals-tools 7.2.1 debe ejecutarse con tus dependencias locales.

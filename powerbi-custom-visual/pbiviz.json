@@ -1,0 +1,23 @@
+{
+  "visual": {
+    "name": "VitaNovaSemanticVisual",
+    "displayName": "VitaNova | Modelo Semántico",
+    "guid": "VitaNovaSemanticVisualD9A83C2026",
+    "visualClassName": "Visual",
+    "version": "2.1.0.0",
+    "description": "Panel comercial interactivo VitaNova; todos los indicadores proceden de medidas del modelo semantico Power BI.",
+    "supportUrl": "https://github.com/eliasgitch",
+    "gitHubUrl": "https://github.com/eliasgitch"
+  },
+  "apiVersion": "5.8.0",
+  "author": {
+    "name": "VitaNova Portfolio",
+    "email": "noreply@example.com"
+  },
+  "assets": {
+    "icon": "assets/icon.png"
+  },
+  "externalJS": [],
+  "style": "style/visual.less",
+  "capabilities": "capabilities.json"
+}

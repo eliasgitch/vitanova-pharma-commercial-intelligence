@@ -1,0 +1,281 @@
+{
+  "privileges": [
+    {
+      "name": "ExportContent",
+      "essential": false
+    }
+  ],
+  "dataRoles": [
+    {
+      "name": "yearMonth",
+      "displayName": "01 Año-Mes",
+      "kind": "Grouping",
+      "description": "Arrastrar DimDate[YearMonth] del modelo semántico"
+    },
+    {
+      "name": "productKey",
+      "displayName": "02 Producto ID",
+      "kind": "Grouping",
+      "description": "Arrastrar DimProduct[ProductKey] del modelo semántico"
+    },
+    {
+      "name": "brand",
+      "displayName": "03 Marca",
+      "kind": "Grouping",
+      "description": "Arrastrar DimProduct[Brand] del modelo semántico"
+    },
+    {
+      "name": "therapy",
+      "displayName": "04 Terapia",
+      "kind": "Grouping",
+      "description": "Arrastrar DimProduct[TherapeuticArea] del modelo semántico"
+    },
+    {
+      "name": "marketKey",
+      "displayName": "05 Mercado ID",
+      "kind": "Grouping",
+      "description": "Arrastrar DimMarket[MarketKey] del modelo semántico"
+    },
+    {
+      "name": "country",
+      "displayName": "06 País",
+      "kind": "Grouping",
+      "description": "Arrastrar DimMarket[Country] del modelo semántico"
+    },
+    {
+      "name": "region",
+      "displayName": "07 Región",
+      "kind": "Grouping",
+      "description": "Arrastrar DimMarket[Region] del modelo semántico"
+    },
+    {
+      "name": "channelKey",
+      "displayName": "08 Canal ID",
+      "kind": "Grouping",
+      "description": "Arrastrar DimChannel[ChannelKey] del modelo semántico"
+    },
+    {
+      "name": "channel",
+      "displayName": "09 Canal",
+      "kind": "Grouping",
+      "description": "Arrastrar DimChannel[Channel] del modelo semántico"
+    },
+    {
+      "name": "netSales",
+      "displayName": "10 Ventas netas",
+      "kind": "Measure",
+      "description": "Arrastrar _Measures[Net Sales] del modelo semántico"
+    },
+    {
+      "name": "cogs",
+      "displayName": "11 Coste ventas",
+      "kind": "Measure",
+      "description": "Arrastrar _Measures[COGS] del modelo semántico"
+    },
+    {
+      "name": "units",
+      "displayName": "12 Unidades",
+      "kind": "Measure",
+      "description": "Arrastrar _Measures[Units] del modelo semántico"
+    },
+    {
+      "name": "budgetSales",
+      "displayName": "13 Presupuesto ventas",
+      "kind": "Measure",
+      "description": "Arrastrar _Measures[Sales Budget] del modelo semántico"
+    },
+    {
+      "name": "budgetCogs",
+      "displayName": "14 Presupuesto costes",
+      "kind": "Measure",
+      "description": "Arrastrar _Measures[COGS Budget] del modelo semántico"
+    },
+    {
+      "name": "budgetUnits",
+      "displayName": "15 Presupuesto unidades",
+      "kind": "Measure",
+      "description": "Arrastrar _Measures[Units Budget] del modelo semántico"
+    },
+    {
+      "name": "forecastSales",
+      "displayName": "16 Ventas previstas",
+      "kind": "Measure",
+      "description": "Arrastrar _Measures[Forecast Monthly] del modelo semántico"
+    },
+    {
+      "name": "forecastCogs",
+      "displayName": "17 Costes previstos",
+      "kind": "Measure",
+      "description": "Arrastrar _Measures[Forecast COGS Monthly] del modelo semántico"
+    }
+  ],
+  "dataViewMappings": [
+    {
+      "conditions": [
+        {
+          "yearMonth": {
+            "max": 1
+          },
+          "productKey": {
+            "max": 1
+          },
+          "brand": {
+            "max": 1
+          },
+          "therapy": {
+            "max": 1
+          },
+          "marketKey": {
+            "max": 1
+          },
+          "country": {
+            "max": 1
+          },
+          "region": {
+            "max": 1
+          },
+          "channelKey": {
+            "max": 1
+          },
+          "channel": {
+            "max": 1
+          },
+          "netSales": {
+            "max": 1
+          },
+          "cogs": {
+            "max": 1
+          },
+          "units": {
+            "max": 1
+          },
+          "budgetSales": {
+            "max": 1
+          },
+          "budgetCogs": {
+            "max": 1
+          },
+          "budgetUnits": {
+            "max": 1
+          },
+          "forecastSales": {
+            "max": 1
+          },
+          "forecastCogs": {
+            "max": 1
+          }
+        }
+      ],
+      "table": {
+        "rows": {
+          "select": [
+            {
+              "bind": {
+                "to": "yearMonth"
+              }
+            },
+            {
+              "bind": {
+                "to": "productKey"
+              }
+            },
+            {
+              "bind": {
+                "to": "brand"
+              }
+            },
+            {
+              "bind": {
+                "to": "therapy"
+              }
+            },
+            {
+              "bind": {
+                "to": "marketKey"
+              }
+            },
+            {
+              "bind": {
+                "to": "country"
+              }
+            },
+            {
+              "bind": {
+                "to": "region"
+              }
+            },
+            {
+              "bind": {
+                "to": "channelKey"
+              }
+            },
+            {
+              "bind": {
+                "to": "channel"
+              }
+            },
+            {
+              "bind": {
+                "to": "netSales"
+              }
+            },
+            {
+              "bind": {
+                "to": "cogs"
+              }
+            },
+            {
+              "bind": {
+                "to": "units"
+              }
+            },
+            {
+              "bind": {
+                "to": "budgetSales"
+              }
+            },
+            {
+              "bind": {
+                "to": "budgetCogs"
+              }
+            },
+            {
+              "bind": {
+                "to": "budgetUnits"
+              }
+            },
+            {
+              "bind": {
+                "to": "forecastSales"
+              }
+            },
+            {
+              "bind": {
+                "to": "forecastCogs"
+              }
+            }
+          ],
+          "dataReductionAlgorithm": {
+            "top": {
+              "count": 30000
+            }
+          }
+        },
+        "dataVolume": 6
+      }
+    }
+  ],
+  "objects": {
+    "general": {
+      "properties": {
+        "filter": {
+          "type": {
+            "filter": true
+          }
+        }
+      }
+    }
+  },
+  "supportsLandingPage": true,
+  "supportsEmptyDataView": true
+}

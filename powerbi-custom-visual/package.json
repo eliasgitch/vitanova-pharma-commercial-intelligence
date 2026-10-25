@@ -1,0 +1,13 @@
+{
+  "name": "vitanova-web-replica",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "package": "pbiviz package"
+  },
+  "devDependencies": {
+    "powerbi-visuals-api": "~5.8.0",
+    "powerbi-visuals-tools": "7.2.1",
+    "typescript": "^5.8.3"
+  }
+}

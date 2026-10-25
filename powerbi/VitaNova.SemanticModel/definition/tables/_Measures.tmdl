@@ -1,0 +1,278 @@
+table _Measures
+	lineageTag: 299dd352-d893-5b1a-b58f-d81869d0fa69
+
+	measure 'Net Sales' = SUM(FactSales[NetSalesEUR])
+		formatString: €#,0;€-#,0
+		lineageTag: 6cb68ce4-edc3-59c1-a4d5-d359b884dcf4
+
+	measure 'Gross Sales' = SUM(FactSales[GrossSalesEUR])
+		formatString: €#,0;€-#,0
+		lineageTag: f96c1b47-3fe2-5f3f-a73f-6a15edc0f472
+
+	measure Discounts = SUM(FactSales[DiscountsEUR])
+		formatString: €#,0;€-#,0
+		lineageTag: d76de6e2-0a79-5d9f-a0b6-f07d5808637f
+
+	measure Returns = SUM(FactSales[ReturnsEUR])
+		formatString: €#,0;€-#,0
+		lineageTag: 43c93c93-3afa-5e32-858a-718c9f889c02
+
+	measure COGS = SUM(FactSales[COGSEUR])
+		formatString: €#,0;€-#,0
+		lineageTag: 9e66211c-f59f-59a5-bbc6-cdaca8dffe27
+
+	measure Units = SUM(FactSales[Units])
+		formatString: #,0
+		lineageTag: 1df8ac9a-3a31-5f57-b2eb-3b4345c2eb48
+
+	measure 'Gross Profit' = [Net Sales]-[COGS]
+		formatString: €#,0;€-#,0
+		lineageTag: 7e9c04b0-59a9-5f52-813a-9de44f3ffc39
+
+	measure 'Gross Margin %' = DIVIDE([Gross Profit],[Net Sales])
+		formatString: 0.0%
+		lineageTag: 23621f57-1aa2-59d3-b412-aa9280023cc8
+
+	measure 'Net-to-Gross %' = DIVIDE([Net Sales],[Gross Sales])
+		formatString: 0.0%
+		lineageTag: 5b4250b9-3069-5fb0-aeb7-9dc035646280
+
+	measure 'Sales Budget' = SUM(FactBudget[BudgetSalesEUR])
+		formatString: €#,0;€-#,0
+		lineageTag: 8549f687-8661-54a0-a4e9-83db84f5fad9
+
+	measure 'COGS Budget' = SUM(FactBudget[BudgetCOGSEUR])
+		formatString: €#,0;€-#,0
+		lineageTag: ad51aa90-c5e8-5906-bf2a-d18c59fe46f9
+
+	measure 'Units Budget' = SUM(FactBudget[BudgetUnits])
+		formatString: #,0
+		lineageTag: a8898fab-0abe-5acd-90d6-c988e8a5fd10
+
+	measure 'Budget Gross Profit' = [Sales Budget]-[COGS Budget]
+		formatString: €#,0;€-#,0
+		lineageTag: 28de157a-18e3-5075-a05a-eeca2de499ab
+
+	measure 'Sales Variance EUR' = [Net Sales]-[Sales Budget]
+		formatString: €#,0;€-#,0
+		lineageTag: 7b3787a6-b66a-5e5f-bd5d-dd7f54f6d2a7
+
+	measure 'Sales Variance %' = DIVIDE([Sales Variance EUR],[Sales Budget])
+		formatString: 0.0%
+		lineageTag: 000ff316-ce06-5d4f-b2c0-9259371448d2
+
+	measure 'Budget Attainment %' = DIVIDE([Net Sales],[Sales Budget])
+		formatString: 0.0%
+		lineageTag: 1494a94d-27c8-515d-b598-6635a011815e
+
+	measure 'Gross Profit Variance EUR' = [Gross Profit]-[Budget Gross Profit]
+		formatString: €#,0;€-#,0
+		lineageTag: b0e69b0a-ff16-59f3-bc2b-48cb8731bec8
+
+	measure 'Sales MTD' = CALCULATE([Net Sales],DATESMTD(DimDate[Date]))
+		formatString: €#,0;€-#,0
+		lineageTag: 4611dbe7-da1a-538f-b272-128ee1d08e4b
+
+	measure 'Budget MTD' = CALCULATE([Sales Budget],DATESMTD(DimDate[Date]))
+		formatString: €#,0;€-#,0
+		lineageTag: 6b4d0f18-50f3-506a-86ab-052ac1ca740c
+
+	measure 'MTD Attainment %' = DIVIDE([Sales MTD],[Budget MTD])
+		formatString: 0.0%
+		lineageTag: 9f97a265-fe0e-5698-875d-fdf2cbedb849
+
+	measure 'Sales QTD' = CALCULATE([Net Sales],DATESQTD(DimDate[Date]))
+		formatString: €#,0;€-#,0
+		lineageTag: daf7f526-3687-55fc-9065-da7b3e7a6660
+
+	measure 'Budget QTD' = CALCULATE([Sales Budget],DATESQTD(DimDate[Date]))
+		formatString: €#,0;€-#,0
+		lineageTag: 010e3981-6332-50c1-89ca-68fd15af108a
+
+	measure 'QTD Attainment %' = DIVIDE([Sales QTD],[Budget QTD])
+		formatString: 0.0%
+		lineageTag: eb1c88d8-065b-5dc9-8d64-d281d5f04ade
+
+	measure 'Sales YTD' = CALCULATE([Net Sales],DATESYTD(DimDate[Date]))
+		formatString: €#,0;€-#,0
+		lineageTag: 9617c2fa-beed-5d4e-8d98-b3155522a7db
+
+	measure 'Budget YTD' = CALCULATE([Sales Budget],DATESYTD(DimDate[Date]))
+		formatString: €#,0;€-#,0
+		lineageTag: e43d4fa2-40d1-58c3-b476-1cd6a5220fde
+
+	measure 'YTD Variance EUR' = [Sales YTD]-[Budget YTD]
+		formatString: €#,0;€-#,0
+		lineageTag: 5e6361cc-8045-5462-ae15-73b6f277eccd
+
+	measure 'YTD Attainment %' = DIVIDE([Sales YTD],[Budget YTD])
+		formatString: 0.0%
+		lineageTag: f8f3ef77-3cea-5adb-b430-ee4117eb31b0
+
+	measure 'Sales PY' = CALCULATE([Net Sales],SAMEPERIODLASTYEAR(DimDate[Date]))
+		formatString: €#,0;€-#,0
+		lineageTag: 2af6141e-10fb-5e7c-86e7-4f7ca6b1ece6
+
+	measure 'Sales YoY %' = DIVIDE([Net Sales]-[Sales PY],[Sales PY])
+		formatString: 0.0%
+		lineageTag: 889f0ca2-bb0f-5ad3-89ac-67d0b24839dc
+
+	measure 'Rolling 12M Sales' = CALCULATE([Net Sales],DATESINPERIOD(DimDate[Date],MAX(DimDate[Date]),-12,MONTH))
+		formatString: €#,0;€-#,0
+		lineageTag: befc72e4-63a3-5da8-a085-90dc161f0768
+
+	measure 'Reporting Year' = COALESCE(SELECTEDVALUE(DimDate[Year]),2026)
+		formatString: 0
+		lineageTag: 078c9632-9bc3-5cdd-996b-dc3dd2a08eaa
+
+	measure 'Reporting Cutoff' = VAR yr=[Reporting Year] VAR lastDate=MAX(DimDate[Date]) VAR approvedClose=IF(yr=2026,DATE(2026,9,30),DATE(yr,12,31)) RETURN MIN(lastDate,approvedClose)
+		formatString: yyyy-mm-dd
+		lineageTag: ad1a4283-01d4-5faa-9ac0-0b193b6ff56d
+
+	measure 'Reporting Sales YTD' = VAR d=[Reporting Cutoff] RETURN CALCULATE([Net Sales],FILTER(ALL(DimDate),DimDate[Date]>=DATE(YEAR(d),1,1)&&DimDate[Date]<=d))
+		formatString: €#,0;€-#,0
+		lineageTag: 13e5a933-4b7d-5f5e-9d21-0ee6fd2fd03a
+
+	measure 'Reporting Budget YTD' = VAR d=[Reporting Cutoff] RETURN CALCULATE([Sales Budget],FILTER(ALL(DimDate),DimDate[Date]>=DATE(YEAR(d),1,1)&&DimDate[Date]<=d))
+		formatString: €#,0;€-#,0
+		lineageTag: bf95a07b-5820-591f-bc27-ea9fae53697c
+
+	measure 'Reporting Sales PY' = VAR d=[Reporting Cutoff] VAR first=DATE(YEAR(d)-1,1,1) VAR last=EDATE(d,-12) RETURN CALCULATE([Net Sales],FILTER(ALL(DimDate),DimDate[Date]>=first&&DimDate[Date]<=last))
+		formatString: €#,0;€-#,0
+		lineageTag: 9c45478e-76eb-55a5-8785-2dddf5822192
+
+	measure 'Reporting Attainment %' = DIVIDE([Reporting Sales YTD],[Reporting Budget YTD])
+		formatString: 0.0%
+		lineageTag: 97f3f277-c88b-5b2e-9457-430a2de3d57f
+
+	measure 'Reporting Variance EUR' = [Reporting Sales YTD]-[Reporting Budget YTD]
+		formatString: €#,0;€-#,0
+		lineageTag: a3e595d2-c5d7-5d84-ac92-5c2ac9d2387c
+
+	measure 'Reporting Variance %' = DIVIDE([Reporting Variance EUR],[Reporting Budget YTD])
+		formatString: 0.0%
+		lineageTag: b889b6d3-896a-5bbd-a9b9-9417635125a5
+
+	measure 'Reporting YoY %' = DIVIDE([Reporting Sales YTD]-[Reporting Sales PY],[Reporting Sales PY])
+		formatString: 0.0%
+		lineageTag: e0d276fb-f76a-5995-b336-950338231d40
+
+	measure 'Reporting COGS YTD' = VAR d=[Reporting Cutoff] RETURN CALCULATE([COGS],FILTER(ALL(DimDate),DimDate[Date]>=DATE(YEAR(d),1,1)&&DimDate[Date]<=d))
+		formatString: €#,0;€-#,0
+		lineageTag: d63faffd-d3ad-5b1e-a1a4-77e5f23da49b
+
+	measure 'Reporting Gross Margin %' = DIVIDE([Reporting Sales YTD]-[Reporting COGS YTD],[Reporting Sales YTD])
+		formatString: 0.0%
+		lineageTag: 0414b56d-91fe-56c5-871a-01ce30720b25
+
+	measure 'Reporting Units YTD' = VAR d=[Reporting Cutoff] RETURN CALCULATE([Units],FILTER(ALL(DimDate),DimDate[Date]>=DATE(YEAR(d),1,1)&&DimDate[Date]<=d))
+		formatString: #,0
+		lineageTag: 342ed3d7-b9a4-5226-8b3d-8973e47f1fa8
+
+	measure 'Reporting Sales MTD' = VAR d=[Reporting Cutoff] RETURN CALCULATE([Net Sales],FILTER(ALL(DimDate),DimDate[Date]>=DATE(YEAR(d),MONTH(d),1)&&DimDate[Date]<=d))
+		formatString: €#,0;€-#,0
+		lineageTag: 27a8d8bc-6063-5c53-85b2-026e35d1118f
+
+	measure 'Reporting Budget MTD' = VAR d=[Reporting Cutoff] RETURN CALCULATE([Sales Budget],FILTER(ALL(DimDate),DimDate[Date]>=DATE(YEAR(d),MONTH(d),1)&&DimDate[Date]<=d))
+		formatString: €#,0;€-#,0
+		lineageTag: 997d869b-d660-5a8f-8f1a-b69600a7791b
+
+	measure 'Reporting MTD Attainment %' = DIVIDE([Reporting Sales MTD],[Reporting Budget MTD])
+		formatString: 0.0%
+		lineageTag: 9cf42281-d970-52b8-89dc-162c906c76df
+
+	measure 'Reporting Sales QTD' = VAR d=[Reporting Cutoff] VAR qstart=DATE(YEAR(d),MONTH(d)-MOD(MONTH(d)-1,3),1) RETURN CALCULATE([Net Sales],FILTER(ALL(DimDate),DimDate[Date]>=qstart&&DimDate[Date]<=d))
+		formatString: €#,0;€-#,0
+		lineageTag: e3e34cde-d042-59cf-9114-3589c807fc09
+
+	measure 'Reporting Budget QTD' = VAR d=[Reporting Cutoff] VAR qstart=DATE(YEAR(d),MONTH(d)-MOD(MONTH(d)-1,3),1) RETURN CALCULATE([Sales Budget],FILTER(ALL(DimDate),DimDate[Date]>=qstart&&DimDate[Date]<=d))
+		formatString: €#,0;€-#,0
+		lineageTag: f739b350-ce79-556c-bdf9-e0bde6eabb18
+
+	measure 'Reporting QTD Attainment %' = DIVIDE([Reporting Sales QTD],[Reporting Budget QTD])
+		formatString: 0.0%
+		lineageTag: 01733144-1f24-5485-a703-c5bcb1307bfe
+
+	measure 'Monthly Sales Report Year' = VAR y=[Reporting Year] RETURN CALCULATE([Net Sales],KEEPFILTERS(DimDate[Year]=y))
+		formatString: €#,0;€-#,0
+		lineageTag: 6f5af4b5-1158-57b3-8004-8d2d89f5b293
+
+	measure 'Monthly Budget Report Year' = VAR y=[Reporting Year] RETURN CALCULATE([Sales Budget],KEEPFILTERS(DimDate[Year]=y))
+		formatString: €#,0;€-#,0
+		lineageTag: 90a399a1-0635-5bf8-8237-fd9fa03302af
+
+	measure 'FY2026 Budget' = CALCULATE([Sales Budget],REMOVEFILTERS(DimDate),DimDate[Year]=2026)
+		formatString: €#,0;€-#,0
+		lineageTag: 4a3595a9-bc7a-51f6-9a64-fec45ae3b0df
+
+	measure 'FY2026 Actual Through Close' = CALCULATE([Net Sales],REMOVEFILTERS(DimDate),DimDate[Date]>=DATE(2026,1,1),DimDate[Date]<=DATE(2026,9,30))
+		formatString: €#,0;€-#,0
+		lineageTag: bf81ccbe-f0bc-5c3b-8818-bb2e344f8381
+
+	measure 'FY2026 COGS Through Close' = CALCULATE([COGS],REMOVEFILTERS(DimDate),DimDate[Date]>=DATE(2026,1,1),DimDate[Date]<=DATE(2026,9,30))
+		formatString: €#,0;€-#,0
+		lineageTag: eda5568a-bbf8-5ef7-a6ff-c52814fb393a
+
+	measure 'Remaining Forecast' = CALCULATE(SUM(FactForecast[ForecastSalesEUR]),REMOVEFILTERS(DimDate),DimDate[Year]=2026,FactForecast[ForecastStatus]="Projection")
+		formatString: €#,0;€-#,0
+		lineageTag: 522f3fea-1dba-5831-baab-d02f6b42245f
+
+	measure 'Remaining Forecast COGS' = CALCULATE(SUM(FactForecast[ForecastCOGSEUR]),REMOVEFILTERS(DimDate),DimDate[Year]=2026,FactForecast[ForecastStatus]="Projection")
+		formatString: €#,0;€-#,0
+		lineageTag: 880918d8-9f5c-53b2-ab69-2d843f1805a4
+
+	measure 'Scenario Multiplier' = SELECTEDVALUE(DimScenario[Multiplier],1.0)
+		formatString: 0.00
+		lineageTag: cc25334d-ed94-5e48-9f24-97b9cee4ead3
+
+	measure 'FY2026 Scenario Sales' = [FY2026 Actual Through Close]+[Remaining Forecast]*[Scenario Multiplier]
+		formatString: €#,0;€-#,0
+		lineageTag: 335e7ffe-186b-55ee-aa37-5c1ea71a34ef
+
+	measure 'FY2026 Scenario COGS' = [FY2026 COGS Through Close]+[Remaining Forecast COGS]*[Scenario Multiplier]
+		formatString: €#,0;€-#,0
+		lineageTag: c48299aa-0cfd-5c4b-bf67-d18bbbb2a4a0
+
+	measure 'FY2026 Scenario Attainment %' = DIVIDE([FY2026 Scenario Sales],[FY2026 Budget])
+		formatString: 0.0%
+		lineageTag: 9e8d1787-a6f5-59ec-aa00-540dd64d03e5
+
+	measure 'FY2026 Scenario Margin %' = DIVIDE([FY2026 Scenario Sales]-[FY2026 Scenario COGS],[FY2026 Scenario Sales])
+		formatString: 0.0%
+		lineageTag: c23528ac-b904-5516-bd5b-66096e4428b5
+
+	measure 'FY2026 Scenario Variance EUR' = [FY2026 Scenario Sales]-[FY2026 Budget]
+		formatString: €#,0;€-#,0
+		lineageTag: ebd18a76-5d72-5c1d-8eff-42b17c0e47a3
+
+	measure 'Forecast Monthly' = SUM(FactForecast[ForecastSalesEUR])
+		formatString: €#,0;€-#,0
+		lineageTag: 86bf96f9-ab57-5fcd-a48b-1833c61bdf22
+
+	measure 'Forecast COGS Monthly' = SUM(FactForecast[ForecastCOGSEUR])
+		formatString: €#,0;€-#,0
+		lineageTag: c4bb181b-4aee-42d2-af73-4d9ae7d12f46
+
+	measure 'Scenario Forecast Monthly' = SUMX(FactForecast,IF(FactForecast[ForecastStatus]="Projection",FactForecast[ForecastSalesEUR]*[Scenario Multiplier],FactForecast[ForecastSalesEUR]))
+		formatString: €#,0;€-#,0
+		lineageTag: ddff91a3-3071-5a84-aabb-797ce8d46bfc
+
+	measure 'FY2026 Outlook Gap %' = DIVIDE([FY2026 Scenario Sales]-[FY2026 Budget],[FY2026 Budget])
+		formatString: 0.0%
+		lineageTag: 034b2b49-22f7-5d55-b206-69448878bb0c
+
+	measure 'Reporting Gross Profit YTD' = [Reporting Sales YTD]-[Reporting COGS YTD]
+		formatString: €#,##0;€-#,##0
+		lineageTag: e9f6f9b9-0d63-54e8-b061-711d4f0569e8
+
+	column TechnicalKey
+		dataType: int64
+		isHidden
+		lineageTag: 6f188574-3368-53a4-8a42-ffe74c6f8a1d
+		summarizeBy: none
+		sourceColumn: TechnicalKey
+
+	partition _Measures = m
+		mode: import
+		source = #table(type table [TechnicalKey = Int64.Type], {{1}})
+

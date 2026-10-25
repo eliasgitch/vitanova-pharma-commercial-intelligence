@@ -1,0 +1,78 @@
+// VITANOVA · CENTRAL MEASURE LIBRARY
+// Import the seven CSV tables from ../data; set data types correctly;
+// mark DimDate as a date table (DimDate[Date]); build single direction 1:* relations.
+// All financial quantities are denominated in reporting EUR.
+
+// BASE FINANCIAL MEASURES
+Net Sales = SUM ( FactSales[NetSalesEUR] )
+Gross Sales = SUM ( FactSales[GrossSalesEUR] )
+Sales Discounts = SUM ( FactSales[DiscountsEUR] )
+Sales Returns = SUM ( FactSales[ReturnsEUR] )
+Cost of Goods Sold = SUM ( FactSales[COGSEUR] )
+Sales Units = SUM ( FactSales[Units] )
+Gross Profit = [Net Sales] - [Cost of Goods Sold]
+Gross Margin % = DIVIDE ( [Gross Profit], [Net Sales] )
+Net-to-Gross % = DIVIDE ( [Net Sales], [Gross Sales] )
+
+// PLAN · KEPT IN ITS OWN FACT TABLE; NEVER DUPLICATE BUDGET OVER SALES ROWS
+Sales Budget = SUM ( FactBudget[BudgetSalesEUR] )
+COGS Budget = SUM ( FactBudget[BudgetCOGSEUR] )
+Units Budget = SUM ( FactBudget[BudgetUnits] )
+Budget Gross Profit = [Sales Budget] - [COGS Budget]
+Budget Gross Margin % = DIVIDE ( [Budget Gross Profit], [Sales Budget] )
+Sales Variance EUR = [Net Sales] - [Sales Budget]
+Sales Variance % = DIVIDE ( [Sales Variance EUR], [Sales Budget] )
+Budget Attainment % = DIVIDE ( [Net Sales], [Sales Budget] )
+Gross Profit Variance EUR = [Gross Profit] - [Budget Gross Profit]
+
+// TIME INTELLIGENCE · DimDate MUST BE A DEDICATED DAILY CALENDAR
+Sales MTD = CALCULATE ( [Net Sales], DATESMTD ( DimDate[Date] ) )
+Budget MTD = CALCULATE ( [Sales Budget], DATESMTD ( DimDate[Date] ) )
+MTD Attainment % = DIVIDE ( [Sales MTD], [Budget MTD] )
+Sales QTD = CALCULATE ( [Net Sales], DATESQTD ( DimDate[Date] ) )
+Budget QTD = CALCULATE ( [Sales Budget], DATESQTD ( DimDate[Date] ) )
+QTD Attainment % = DIVIDE ( [Sales QTD], [Budget QTD] )
+Sales YTD = CALCULATE ( [Net Sales], DATESYTD ( DimDate[Date] ) )
+Budget YTD = CALCULATE ( [Sales Budget], DATESYTD ( DimDate[Date] ) )
+YTD Variance EUR = [Sales YTD] - [Budget YTD]
+YTD Variance % = DIVIDE ( [YTD Variance EUR], [Budget YTD] )
+YTD Attainment % = DIVIDE ( [Sales YTD], [Budget YTD] )
+Gross Profit YTD = CALCULATE ( [Gross Profit], DATESYTD ( DimDate[Date] ) )
+YTD Gross Margin % = DIVIDE ( [Gross Profit YTD], [Sales YTD] )
+Sales PY = CALCULATE ( [Net Sales], SAMEPERIODLASTYEAR ( DimDate[Date] ) )
+Sales YTD PY = CALCULATE ( [Sales YTD], SAMEPERIODLASTYEAR ( DimDate[Date] ) )
+Sales YoY % = DIVIDE ( [Net Sales] - [Sales PY], [Sales PY] )
+Sales YTD YoY % = DIVIDE ( [Sales YTD] - [Sales YTD PY], [Sales YTD PY] )
+Units YTD = CALCULATE ( [Sales Units], DATESYTD ( DimDate[Date] ) )
+Units YTD PY = CALCULATE ( [Units YTD], SAMEPERIODLASTYEAR ( DimDate[Date] ) )
+Units YTD YoY % = DIVIDE ( [Units YTD] - [Units YTD PY], [Units YTD PY] )
+Rolling 12M Net Sales = CALCULATE ( [Net Sales], DATESINPERIOD ( DimDate[Date], MAX ( DimDate[Date] ), -12, MONTH ) )
+
+// ROLLING FY OUTLOOK · FIXED CLOSED PERIOD: SEPTEMBER 2026
+// Financial control page has to compare FULL YEAR budget with FULL YEAR forecast.
+// DimScenario is a disconnected parameter table with Scenario and Multiplier columns.
+FY2026 Budget = CALCULATE (
+    [Sales Budget], REMOVEFILTERS ( DimDate ), DimDate[Year] = 2026
+)
+FY2026 Actual Through Close = CALCULATE (
+    [Net Sales], REMOVEFILTERS ( DimDate ),
+    DimDate[Date] >= DATE ( 2026, 1, 1 ), DimDate[Date] <= DATE ( 2026, 9, 30 )
+)
+FY2026 Actual COGS Through Close = CALCULATE (
+    [Cost of Goods Sold], REMOVEFILTERS ( DimDate ),
+    DimDate[Date] >= DATE ( 2026, 1, 1 ), DimDate[Date] <= DATE ( 2026, 9, 30 )
+)
+Remaining Forecast = CALCULATE (
+    SUM ( FactForecast[ForecastSalesEUR] ), REMOVEFILTERS ( DimDate ),
+    DimDate[Year] = 2026, FactForecast[ForecastStatus] = "Projection"
+)
+Remaining Forecast COGS = CALCULATE (
+    SUM ( FactForecast[ForecastCOGSEUR] ), REMOVEFILTERS ( DimDate ),
+    DimDate[Year] = 2026, FactForecast[ForecastStatus] = "Projection"
+)
+Scenario Multiplier = SELECTEDVALUE ( DimScenario[Multiplier], 1.0 )
+FY2026 Scenario Sales = [FY2026 Actual Through Close] + [Remaining Forecast] * [Scenario Multiplier]
+FY2026 Scenario COGS = [FY2026 Actual COGS Through Close] + [Remaining Forecast COGS] * [Scenario Multiplier]
+FY2026 Scenario Margin % = DIVIDE ( [FY2026 Scenario Sales] - [FY2026 Scenario COGS], [FY2026 Scenario Sales] )
+FY2026 Scenario Attainment % = DIVIDE ( [FY2026 Scenario Sales], [FY2026 Budget] )
+FY2026 Scenario Variance EUR = [FY2026 Scenario Sales] - [FY2026 Budget]

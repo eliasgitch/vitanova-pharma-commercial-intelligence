@@ -1,0 +1,57 @@
+table DimDate
+	lineageTag: 9fae315b-5b36-57b2-a78a-e0ede39c1580
+
+	column Date
+		dataType: dateTime
+		lineageTag: 53b56076-85f2-59ae-b0a0-ceb0ccd2deb0
+		summarizeBy: none
+		sourceColumn: Date
+
+	column Year
+		dataType: int64
+		lineageTag: 750f9a1e-bf61-5864-b91e-471a5504295f
+		summarizeBy: none
+		sourceColumn: Year
+
+	column Quarter
+		dataType: string
+		lineageTag: 7ad19c43-90c2-5bae-83b8-b3a333fd2085
+		summarizeBy: none
+		sourceColumn: Quarter
+
+	column MonthNo
+		dataType: int64
+		lineageTag: 63ff7177-aa40-5aea-b4b0-adcb3b24d885
+		summarizeBy: none
+		sourceColumn: MonthNo
+
+	column MonthName
+		dataType: string
+		lineageTag: b51cded2-04ee-5b5b-ba6d-fd2942c8a4ca
+		summarizeBy: none
+		sourceColumn: MonthName
+
+	column YearMonth
+		dataType: string
+		lineageTag: de8b6944-9310-5162-a269-9baa4b6ecbc2
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+	column MonthStart
+		dataType: dateTime
+		lineageTag: 77baaeb6-a29c-5947-92c7-1f725984c5f2
+		summarizeBy: none
+		sourceColumn: MonthStart
+
+	partition DimDate = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(Binary.Decompress(Binary.FromText(Text.Combine({
+						"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"
+					}), BinaryEncoding.Base64), Compression.Deflate), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Headers, {{"Date",type datetime},{"Year",Int64.Type},{"Quarter",type text},{"MonthNo",Int64.Type},{"MonthName",type text},{"YearMonth",type text},{"MonthStart",type datetime}}, "en-US")
+				in
+					Typed
+
