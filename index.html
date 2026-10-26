@@ -244,6 +244,211 @@
 .cross-state button:hover{background:#dff3ef}
 @media(max-width:800px){.cross-state{max-width:56vw}.cross-state>span{max-width:220px}.top-meta{display:none}}
 
+/* V5.7 · Executive overview: keep the regional growth matrix legend visible.
+   This specific panel is shorter than its equivalents on other dashboard pages.
+   Compact only its cell spacing and reserve non-shrinking legend space. */
+#dashboard.dash-overview .overview-secondary .heatmap-wrap {
+  justify-content:space-between;
+  gap:5px;
+}
+#dashboard.dash-overview .overview-secondary .heatmap {
+  flex:1;
+  min-height:0;
+}
+#dashboard.dash-overview .overview-secondary .heatmap th {padding:3px 4px;}
+#dashboard.dash-overview .overview-secondary .heatmap td {padding:5px 1px;}
+#dashboard.dash-overview .overview-secondary .heatmap-note {
+  flex:0 0 auto;
+  min-height:14px;
+  align-items:center;
+}
+
+/* VitaNova V5.8 | Fluid desktop viewport contract.
+   Fixes the old 700–819px browser-height media queries which forced fixed-height
+   blocks and a page-level scrollbar. Reserve true viewport height for all six
+   business workspaces; preserve natural scrolling only on narrow/mobile screens. */
+@media (min-width:1200px) and (min-height:600px) {
+  html, body {
+    width:100%; height:100%; min-height:0;
+    overflow:hidden !important;
+  }
+  .app-shell {
+    display:flex !important;
+    height:100vh !important; height:100dvh !important;
+    min-height:0 !important; overflow:hidden !important;
+  }
+  .sidebar {
+    position:relative !important; top:0;
+    flex:0 0 220px;
+    height:100vh !important; height:100dvh !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+  }
+  .main-area {
+    height:100vh !important; height:100dvh !important;
+    min-height:0 !important;
+    display:flex !important; flex-direction:column !important;
+    overflow:hidden !important;
+  }
+  .topbar {
+    height:clamp(34px,4.7dvh,45px) !important;
+    flex:0 0 clamp(34px,4.7dvh,45px) !important;
+  }
+  .workspace {
+    flex:1 1 0 !important;
+    height:auto !important; min-height:0 !important;
+    width:100% !important; max-width:none;
+    overflow:hidden !important;
+    display:flex; flex-direction:column;
+    gap:clamp(5px,.85dvh,9px) !important;
+    padding:clamp(5px,.85dvh,10px) clamp(9px,.95vw,16px) clamp(5px,.65dvh,8px) !important;
+  }
+  .hero {
+    flex:0 0 clamp(38px,5.8dvh,54px) !important;
+    height:clamp(38px,5.8dvh,54px) !important;
+  }
+  .hero h1 {font-size:clamp(21px,1.9vw,30px)}
+  .filters {
+    flex:0 0 clamp(43px,6.3dvh,56px) !important;
+    height:clamp(43px,6.3dvh,56px) !important;
+    min-height:0 !important;
+    display:flex !important; flex-wrap:nowrap !important;
+    gap:clamp(7px,1vw,15px);
+    padding:4px clamp(8px,.75vw,12px) !important;
+  }
+  .filter-header {width:auto !important;flex:0 0 auto !important;min-width:0 !important;}
+  .filter-controls {flex:1 1 auto !important; flex-basis:auto !important;min-width:0 !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;}
+  .filter-controls select {height:clamp(25px,3.35dvh,31px);min-height:0;}
+  .filter-actions button {padding:clamp(4px,.65dvh,7px) clamp(6px,.55vw,10px);}
+  #dashboard:is(.dash-overview,.dash-sales,.dash-budget,.dash-portfolio,.dash-markets,.dash-forecast) {
+    flex:1 1 0 !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+    display:grid !important;
+    grid-template-rows:minmax(0,clamp(79px,12.6dvh,118px)) minmax(0,1.09fr) minmax(0,1fr) !important;
+    gap:clamp(5px,.9dvh,10px) !important;
+  }
+  #dashboard > * {min-height:0 !important;min-width:0 !important;margin:0 !important;}
+  #dashboard > .metric-grid-five {
+    height:100% !important;
+    min-height:0 !important;
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  }
+  #dashboard > .overview-primary,#dashboard > .overview-secondary {
+    height:100% !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+    grid-template-columns:minmax(0,1.55fr) minmax(0,1.13fr) minmax(0,.9fr) !important;
+    gap:clamp(6px,.9dvh,10px);
+  }
+  #dashboard > .overview-secondary {
+    grid-template-columns:minmax(0,1.12fr) minmax(0,1.15fr) minmax(0,1.12fr) !important;
+  }
+  #dashboard .metric {
+    min-height:0 !important; height:100% !important;
+    padding:clamp(7px,.95dvh,15px) clamp(9px,.85vw,16px);
+  }
+  #dashboard .metric-grid-five .metric-value {
+    font-size:clamp(19px,1.7vw,28px);
+    margin:clamp(3px,.8dvh,9px) 0 clamp(3px,.5dvh,7px);
+  }
+  #dashboard .metric-spark {height:clamp(28px,4.5dvh,46px);bottom:clamp(7px,1dvh,13px);}
+  #dashboard .metric-gauge {max-height:clamp(43px,7.5dvh,78px);}
+  #dashboard .panel {
+    min-width:0 !important; min-height:0 !important;
+    height:100% !important;
+    display:flex;flex-direction:column;
+    overflow:hidden !important;
+    padding:clamp(8px,1.25dvh,15px) clamp(10px,.95vw,18px) !important;
+  }
+  #dashboard .panel-header {margin-bottom:clamp(3px,.65dvh,9px);flex:0 0 auto;}
+  #dashboard .panel h3 {font-size:clamp(11px,.8vw,14px)}
+  #dashboard .panel-subtitle {font-size:clamp(9px,.58vw,11px);margin-top:2px;}
+  #dashboard .chart-wrap {flex:1 1 0 !important;min-height:0 !important;height:auto !important;}
+  #dashboard .bridge-wrap {flex:1;min-height:0;}
+  #dashboard .overview-primary .donut-layout svg {max-height:100%;height:100%;}
+  .page-footer {
+    flex:0 0 clamp(11px,1.6dvh,15px) !important;
+    min-height:0 !important;
+    margin:0 !important; padding:0 2px !important;
+    overflow:hidden;white-space:nowrap;
+  }
+  #dashboard .source-note {min-height:0;max-height:15px;overflow:hidden;}
+  #dashboard .heatmap-wrap {min-height:0;gap:clamp(2px,.45dvh,5px);justify-content:space-between;}
+  #dashboard .heatmap {flex:1;min-height:0;border-spacing:2px;}
+  #dashboard .heatmap th {padding:clamp(2px,.42dvh,5px) 3px;}
+  #dashboard .heatmap td {padding:clamp(3px,.67dvh,9px) 1px;}
+  #dashboard .heatmap-note {
+    flex:0 0 auto !important;
+    min-height:12px;
+    align-items:center;
+    margin:0;
+  }
+}
+/* Higher-density typography for a laptop with only 600–720px of usable browser height. */
+@media (min-width:1200px) and (min-height:600px) and (max-height:720px) {
+  .sidebar .side-section {margin-top:clamp(12px,3dvh,22px)}
+  .sidebar .side-nav {gap:3px}
+  .sidebar .nav-link {min-height:37px;padding:7px 10px}
+  .sidebar-foot {padding-bottom:14px !important}
+  .metric-label{font-size:9px}
+  #dashboard .metric-comparison {font-size:9px}
+  #dashboard .therapy-legend {font-size:8.5px;margin-bottom:2px;gap:3px 8px}
+  #dashboard .overview-primary .donut-legend{gap:2px 7px}
+  #dashboard .overview-primary .donut-legend-row{font-size:8px}
+  #dashboard .geo-map-frame {max-height:150px}
+  #dashboard .geo-table-row{min-height:17px}
+  #dashboard .heatmap th {font-size:8px;padding:2px}
+  #dashboard .heatmap td {font-size:9px;padding:2px 1px}
+  #dashboard .heatmap-note {font-size:8px;min-height:11px}
+  #dashboard .bridge-footnote {font-size:8px}
+}
+/* Touch/mobile or very narrow viewports keep natural document flow so that
+   labels remain readable rather than being clipped. */
+
+/* V5.8 | Avoid hiding final scorecard/reconciliation rows on 13–14" laptops.
+   The panel bodies now shrink through real row spacing instead of clipping. */
+@media (min-width:1200px) and (min-height:600px) and (max-height:730px) {
+  #dashboard .scorecard {min-height:0;justify-content:space-between;}
+  #dashboard .score-head {padding:3px 0;min-height:17px;font-size:8px;line-height:1.1;}
+  #dashboard .score-row {min-height:16px;font-size:9px;line-height:1.1;}
+  #dashboard .score-row strong {font-size:9px;}
+  #dashboard .reconciliation {min-height:0;}
+  #dashboard .reconciliation > div {padding:3px 2px;min-height:18px;line-height:1.2;font-size:10px;}
+  #dashboard .reconciliation strong {font-size:10px;}
+  #dashboard .scenario-v4 {min-height:0;gap:4px;justify-content:space-evenly;}
+  #dashboard .scenario-v4-row {min-height:16px;gap:5px;font-size:9px;}
+  #dashboard .scenario-v4-row strong {font-size:10px;}
+  #dashboard .tiny-note {margin:3px 0 0;font-size:9px;line-height:1.25;}
+  #dashboard .geo-layout {grid-template-columns:minmax(0,49%) minmax(0,51%);gap:6px;}
+  #dashboard .geo-table-head, #dashboard .geo-table-row {grid-template-columns:minmax(0,1fr) 57px 42px;gap:3px;}
+  #dashboard .geo-table-head {font-size:8px;padding-bottom:3px;}
+  #dashboard .geo-table-row {font-size:9px;}
+  #dashboard .geo-table-row strong {font-size:8.5px;}
+}
+
+/* Shortest supported laptop windows: prioritise dense analytical tables. */
+@media (min-width:1200px) and (min-height:600px) and (max-height:640px) {
+  #dashboard:is(.dash-overview,.dash-sales,.dash-budget,.dash-portfolio,.dash-markets,.dash-forecast) {
+    grid-template-rows:minmax(0,76px) minmax(0,.90fr) minmax(0,1.20fr) !important;
+  }
+  #dashboard .therapy-share {justify-content:space-between;}
+  #dashboard .therapy-share-row {min-height:18px;font-size:9px;gap:4px;}
+  #dashboard .variance-row {min-height:16px;font-size:9px;gap:4px;}
+  #dashboard .variance-list {gap:1px;}
+  #dashboard .heatmap td {padding:1px;}
+  #dashboard .heatmap th {padding:1px;}
+  #dashboard .heatmap-note {font-size:8px;}
+}
+
+@media (min-width:1200px) and (min-height:600px) and (max-height:640px) {
+  #dashboard .attain-bars {gap:0;min-height:0;justify-content:space-between;}
+  #dashboard .attain-row {min-height:14px;line-height:1;font-size:9px;}
+  #dashboard .attain-track {height:10px;}
+  #dashboard .attain-target {height:14px;top:-2px;}
+  #dashboard .attain-axis {font-size:8px;line-height:1.1;}
+}
+
 </style>
 </head><body>
 <div class="app-shell">
