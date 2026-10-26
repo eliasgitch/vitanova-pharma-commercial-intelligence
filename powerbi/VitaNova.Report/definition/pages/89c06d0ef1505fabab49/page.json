@@ -1,8 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "89c06d0ef1505fabab49",
-  "displayName": "Sales Performance",
-  "displayOption": "FitToPage",
-  "height": 820,
-  "width": 1600
-}

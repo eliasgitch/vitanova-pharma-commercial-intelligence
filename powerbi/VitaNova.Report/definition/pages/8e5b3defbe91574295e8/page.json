@@ -1,8 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "8e5b3defbe91574295e8",
-  "displayName": "Product Portfolio",
-  "displayOption": "FitToPage",
-  "height": 820,
-  "width": 1600
-}

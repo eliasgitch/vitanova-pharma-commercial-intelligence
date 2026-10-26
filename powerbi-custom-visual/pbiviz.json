@@ -4,7 +4,7 @@
     "displayName": "VitaNova | Modelo Semántico",
     "guid": "VitaNovaSemanticVisualD9A83C2026",
     "visualClassName": "Visual",
-    "version": "2.1.0.0",
+    "version": "2.1.2.0",
     "description": "Panel comercial interactivo VitaNova; todos los indicadores proceden de medidas del modelo semantico Power BI.",
     "supportUrl": "https://github.com/eliasgitch",
     "gitHubUrl": "https://github.com/eliasgitch"

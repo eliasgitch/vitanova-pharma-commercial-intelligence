@@ -1,8 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "5900ee0f9ee55a249cf7",
-  "displayName": "Forecast & Scenarios",
-  "displayOption": "FitToPage",
-  "height": 820,
-  "width": 1600
-}
